@@ -10,10 +10,12 @@ Install inspired by https://www.atlassian.com/git/tutorials/dotfiles
 
 ## Install
 
-1. `git clone --bare git@github.com:AtoraSuunva/dotfiles.git $HOME/.cfg`
+1. Clone the repo:
+  - HTTPS: `git clone --bare https://github.com/AtoraSuunva/dotfiles.git $HOME/.cfg`
+  - SSH: `git clone --bare git@github.com:AtoraSuunva/dotfiles.git $HOME/.cfg`
 2. `alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'`
 3. `dotfiles checkout`
-  a. This might fail if you've already installed zsh. In that case, move the conflicting files into a backup and then try again:
+  - This might fail if you've already installed zsh. In that case, move the conflicting files into a backup and then try again:
 
 ```sh
 mkdir -p .config-backup && \
@@ -23,12 +25,16 @@ xargs -I{} mv {} .config-backup/{}
 
 4. `dotfiles config --local status.showUntrackedFiles no`
 5. Install zsh e.g. `sudo apt install zsh`
+6. Make zsh your default shell: `chsh -s $(which zsh)`
+7. Log out and log back in
 
 ## Usage
 
 `dotfiles` is an alias to `git` configured to track the home directory. Use `dotfiles add`, `dotfiles status`, `dotfiles push` etc as if you were normally using git.
 
-Generally, any device mirroring the config should only use `dotfiles pull` to update and only the main device would use 
+Generally, any device mirroring the config should only use `dotfiles pull` to update and only the main device would use `dotfiles push`.
+
+Antidote is included as a git submodule, as such it can't self-update. Use `antidote-update` to update the submodule on the main device, then commit and push.
 
 ## (Un)License
 
