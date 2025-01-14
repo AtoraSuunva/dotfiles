@@ -39,7 +39,7 @@ fi
 # pnpm end
 
 # cargo
-if [ ! -f "$CARGO_HOME/env" ]; then
+if [ -f "$CARGO_HOME/env" ]; then
   . "$CARGO_HOME/env"
 fi
 # cargo end
