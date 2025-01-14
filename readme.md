@@ -24,9 +24,10 @@ xargs -I{} mv {} .config-backup/{}
 ```
 
 4. `dotfiles config --local status.showUntrackedFiles no`
-5. Install zsh e.g. `sudo apt install zsh`
-6. Make zsh your default shell: `chsh -s $(which zsh)`
-7. Log out and log back in
+5. `dotfiles submodule update --init`
+6. Install zsh e.g. `sudo apt install zsh`
+7. `chsh -s $(which zsh)`
+8. Log out and log back in
 
 ## Usage
 
