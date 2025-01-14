@@ -29,6 +29,16 @@ xargs -I{} mv {} .config-backup/{}
 7. `chsh -s $(which zsh)`
 8. Log out and log back in
 
+Or just paste:
+
+```sh
+git clone --bare https://github.com/AtoraSuunva/dotfiles.git $HOME/.cfg
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+dotfiles submodule update --init
+```
+
 ## Usage
 
 `dotfiles` is an alias to `git` configured to track the home directory. Use `dotfiles add`, `dotfiles status`, `dotfiles push` etc as if you were normally using git.
