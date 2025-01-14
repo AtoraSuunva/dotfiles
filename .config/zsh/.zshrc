@@ -8,6 +8,3 @@ antidote load
 autoload -Uz promptinit && promptinit && prompt pure
 
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
-
-alias bat="batcat"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
