@@ -27,14 +27,14 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
 # fnm
 if (( $+commands[fnm] )); then
-  export PATH="/home/gduck/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
 # fnm end
 
 # pnpm
 if (( $+commands[pnpm] )); then
-  export PNPM_HOME="/home/gduck/.local/share/pnpm"
+  export PNPM_HOME="$HOME/.local/share/pnpm"
   case ":$PATH:" in
     *":$PNPM_HOME:"*) ;;
     *) export PATH="$PNPM_HOME:$PATH" ;;
