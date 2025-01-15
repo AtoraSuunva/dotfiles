@@ -26,14 +26,14 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
 # fnm
-if (( $+commands[fnm] )); then
+if [ -d "$HOME/.local/share/fnm" ]; then
   export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
 # fnm end
 
 # pnpm
-if (( $+commands[pnpm] )); then
+if [ -d "$HOME/.local/share/pnpm" ]; then
   export PNPM_HOME="$HOME/.local/share/pnpm"
   case ":$PATH:" in
     *":$PNPM_HOME:"*) ;;
