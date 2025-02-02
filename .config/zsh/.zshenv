@@ -25,9 +25,17 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
+typeset -U path PATH
+
+# cargo
+if [ -f "$CARGO_HOME/env" ]; then
+  . "$CARGO_HOME/env"
+fi
+# cargo end
+
 # fnm
 if [ -d "$HOME/.local/share/fnm" ]; then
-  export PATH="$HOME/.local/share/fnm:$PATH"
+  path[1,0]=$HOME/.local/share/fnm
   eval "$(fnm env --use-on-cd)"
 fi
 # fnm end
@@ -35,15 +43,18 @@ fi
 # pnpm
 if [ -d "$HOME/.local/share/pnpm" ]; then
   export PNPM_HOME="$HOME/.local/share/pnpm"
-  case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-  esac
+  path[1,0]=$PNPM_HOME
 fi
 # pnpm end
 
-# cargo
-if [ -f "$CARGO_HOME/env" ]; then
-  . "$CARGO_HOME/env"
+# macOS macports
+if [ -d "/opt/local/bin" ]; then
+  path[1,0]=/opt/local/bin
 fi
-# cargo end
+# macOS end
+
+# .local bin (uv)
+if [ -d "$HOME/.local/bin" ]; then
+  path[1,0]=$HOME/.local/bin
+fi
+# .local bin end
