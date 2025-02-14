@@ -34,8 +34,7 @@ fi
 # cargo end
 
 # fnm
-if [ -d "$HOME/.local/share/fnm" ]; then
-  path[1,0]=$HOME/.local/share/fnm
+if (( $+commands[fnm] )); then
   eval "$(fnm env --use-on-cd)"
 fi
 # fnm end
