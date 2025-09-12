@@ -57,3 +57,9 @@ if [ -d "$HOME/.local/bin" ]; then
   path[1,0]=$HOME/.local/bin
 fi
 # .local bin end
+
+# snap
+if [ -d "/snap/bin" ]; then
+  path[1,0]=/snap/bin
+fi
+# snap end
