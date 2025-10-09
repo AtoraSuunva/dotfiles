@@ -25,6 +25,15 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
+# https://superuser.com/questions/902241/how-to-make-zsh-not-store-failed-command
+zshaddhistory() {
+  local j=1
+  while ([[ ${${(z)1}[$j]} == *=* ]]) {
+    ((j++))
+  }
+  whence ${${(z)1}[$j]} >| /dev/null || return 1
+}
+
 typeset -U path PATH
 
 # cargo

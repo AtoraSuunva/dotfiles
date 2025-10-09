@@ -25,9 +25,10 @@ xargs -I{} mv {} .config-backup/{}
 
 4. `dotfiles config --local status.showUntrackedFiles no`
 5. `dotfiles submodule update --init`
-6. Install zsh e.g. `sudo apt install zsh`
-7. `chsh -s $(which zsh)`
-8. Log out and log back in
+6. `chmod u+x $HOME/.config/zsh/.antidote/functions/*`
+7. Install zsh e.g. `sudo apt install zsh`
+8. `chsh -s $(which zsh)`
+9. Log out and log back in
 
 Or just paste:
 
@@ -37,6 +38,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 dotfiles submodule update --init
+chmod u+x $HOME/.config/zsh/.antidote/functions/*
 ```
 
 ## Usage
@@ -45,7 +47,7 @@ dotfiles submodule update --init
 
 Generally, any device mirroring the config should only use `dotfiles pull` to update and only the main device would use `dotfiles push`.
 
-Antidote is included as a git submodule, as such it can't self-update. Use `antidote-update` to update the submodule on the main device, then commit and push.
+Antidote is included as a git submodule, as such it can't self-update. Use `antidote-update` to update the submodule on the main device, `antidote update` to update your bundles, then commit and push.
 
 ## (Un)License
 
