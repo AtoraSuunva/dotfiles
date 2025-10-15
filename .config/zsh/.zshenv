@@ -1,3 +1,10 @@
+# Export LANG so locale is set correctly
+if locale -a | grep -q '^en_CA\.utf8$'; then
+  export LANG="en_CA.UTF-8"
+elif locale -a | grep -q '^en_US\.utf8$'; then
+  export LANG="en_US.UTF-8"
+fi
+
 alias bat="batcat"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias antidote-update="dotfiles submodule update --remote"
