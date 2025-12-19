@@ -79,3 +79,14 @@ if [ -d "/snap/bin" ]; then
   path[1,0]=/snap/bin
 fi
 # snap end
+
+
+# deno
+if [[ ":$FPATH:" != *":/home/atora/.config/zsh/completions:"* ]]; then
+  export FPATH="/home/atora/.config/zsh/completions:$FPATH"
+fi
+
+if [ -d "$HOME/.deno/bin" ]; then
+  path[1,0]=$HOME/.deno/bin
+fi
+# deno end
