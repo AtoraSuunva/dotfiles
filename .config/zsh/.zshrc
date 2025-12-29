@@ -8,4 +8,4 @@ zstyle ':plugin:ez-compinit' 'compstyle' 'ohmy'
 antidote load
 autoload -Uz promptinit && promptinit && prompt pure
 
-fpath=("${ZDOTDIR:-~}/completions" $fpath)
+fpath=("${ZSH_CACHE_DIR:-~}/completions" $fpath)

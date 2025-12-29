@@ -14,7 +14,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export ZDOTDIR="$HOME"/.config/zsh
+export ZDOTDIR="$HOME/.config/zsh"
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export PYTHONSTARTUP="/etc/python/pythonrc"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
@@ -40,6 +41,9 @@ zshaddhistory() {
   }
   whence ${${(z)1}[$j]} >| /dev/null || return 1
 }
+
+# completions
+[[ -d $ZSH_CACHE_DIR/completions ]] || mkdir -p $ZSH_CACHE_DIR/completions
 
 typeset -U path PATH
 
@@ -82,8 +86,8 @@ fi
 
 
 # deno
-if [[ ":$FPATH:" != *":/home/atora/.config/zsh/completions:"* ]]; then
-  export FPATH="/home/atora/.config/zsh/completions:$FPATH"
+if [[ ":$FPATH:" != *":$HOME/.config/zsh/completions:"* ]]; then
+  export FPATH="$HOME/.config/zsh/completions:$FPATH"
 fi
 
 if [ -d "$HOME/.deno/bin" ]; then

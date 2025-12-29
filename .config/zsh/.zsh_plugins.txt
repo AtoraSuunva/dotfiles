@@ -4,8 +4,10 @@ zsh-users/zsh-autosuggestions
 
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
+ohmyzsh/ohmyzsh path:plugins/mise
 ohmyzsh/ohmyzsh path:plugins/gpg-agent
 ohmyzsh/ohmyzsh path:plugins/extract
+
 mattmc3/zephyr path:plugins/color
 mattmc3/zephyr path:plugins/completion
 mattmc3/zephyr path:plugins/editor
